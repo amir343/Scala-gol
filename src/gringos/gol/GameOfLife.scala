@@ -2,6 +2,13 @@ package gringos.gol
 
 import scala.swing._;
 
+/**
+ * @author Amir Moulavi
+ * @author Sven Johansson
+ */
+
+
+
 object GameOfLife {
 	
 	def main(args : Array[String]) : Unit = {

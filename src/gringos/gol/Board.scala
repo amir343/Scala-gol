@@ -2,9 +2,16 @@ package gringos.gol
 
 import scala.util.Random
 
+/**
+ * @author Amir Moulavi
+ * @author Sven Johansson
+ */
+
+
 object Board {
 	var rnd = new Random
 	var board = initializeBoard
+	
 	
 	def initializeBoard () = {
 		var board = new Array[Array[Boolean]](80, 40)
@@ -40,13 +47,21 @@ object Board {
 	def numberOfLivingNeighborsFor(x: Int, y: Int) = {
 		var nrLive = 0
 		for {s <- x-1 to x+1; p <- y-1 to y+1} {
-			if (s > -1 && s < 80)
-				if (p > -1 && p < 40) {
-					if ( s != x || p != y) { 
-						if (board(s)(p) == true) 
-							nrLive += 1 
-					}
-				}
+			
+			var S = s
+			var P = p
+			
+			if (S == -1) S = 79
+			else if (S == 80) S = 0
+			
+			if (P == -1) P = 39
+			else if (P == 40) P = 0			
+			
+			if ( S != x || P != y) { 
+				if (board(S)(P) == true) 
+					nrLive += 1 
+			}
+			
 		}
 		
 		nrLive

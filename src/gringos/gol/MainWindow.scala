@@ -5,13 +5,20 @@ import java.awt.Color
 
 import java.awt.Graphics;
 
+/**
+ * @author Amir Moulavi
+ * @author Sven Johansson
+ */
+
+
 class MainWindow extends Frame {
 		
-	title = "Game of Life"
+	title = "Game of Life "
 	contents = canvas
 	var board = Board 
 	var step = 16
 	var interval = 100
+	var generation = 1
 	
 	def update {
 		board.update
